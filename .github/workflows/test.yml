@@ -1,0 +1,20 @@
+name: Test Homebrew formula
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v4
+
+      - name: Validate formula syntax
+        run: brew ruby -c Formula/velamq.rb
+
+      - name: Audit formula
+        run: brew audit --formula --skip-style Formula/velamq.rb
