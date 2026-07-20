@@ -2,6 +2,9 @@
 
 This is the Homebrew tap for VelaMQ.
 
+This tap is installed from GitHub. It does not own a GitHub Pages custom
+domain; release artifacts are downloaded from `https://repo.velamq.com/velamq`.
+
 ## Install
 
 ```bash

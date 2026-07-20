@@ -1,6 +1,6 @@
 class Velamq < Formula
   desc "High-performance MQTT broker for IoT"
-  homepage "https://yunliu.tech/velamq"
+  homepage "https://velamq.com"
   version "0.0.1"
   license "Apache-2.0"
 
