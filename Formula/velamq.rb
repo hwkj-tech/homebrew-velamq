@@ -6,10 +6,10 @@ class Velamq < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://repo.yunliu.tech/velamq/downloads/velamqd-0.0.1-macos-aarch64.zip"
+      url "https://repo.velamq.com/velamq/downloads/velamqd-0.0.1-macos-aarch64.zip"
       sha256 "12116bcf29e1c544272feac6f9d651f668ed69a4410191be2175a19a33906b6d"
     else
-      url "https://repo.yunliu.tech/velamq/downloads/velamqd-0.0.1-macos-x86_64.zip"
+      url "https://repo.velamq.com/velamq/downloads/velamqd-0.0.1-macos-x86_64.zip"
       sha256 "c7283209623e6ef6b12a1846239118ed9a1647a7adb44ac0aafe2baba50f997b"
     end
   end
