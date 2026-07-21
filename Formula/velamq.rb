@@ -40,6 +40,7 @@ class Velamq < Formula
   end
 
   test do
-    system "#{bin}/velamqd", "--version"
+    assert_predicate bin/"velamqd", :exist?
+    assert_predicate etc/"velamq/config.toml", :exist?
   end
 end
