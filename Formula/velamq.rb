@@ -2,6 +2,7 @@ class Velamq < Formula
   desc "High-performance MQTT broker for IoT"
   homepage "https://velamq.com"
   version "0.0.1"
+  revision 1
   license "Apache-2.0"
 
   on_macos do
@@ -20,6 +21,7 @@ class Velamq < Formula
 
     bin.install "bin/velamqd"
     bin.install "bin/velamq-bench" if File.exist?("bin/velamq-bench")
+    pkgshare.install "static" if Dir.exist?("static")
 
     (etc/"velamq").mkpath
     if File.exist?("config.toml") && !(etc/"velamq/config.toml").exist?
@@ -34,7 +36,8 @@ class Velamq < Formula
     run [opt_bin/"velamqd"]
     keep_alive true
     working_dir var/"lib/velamq"
-    environment_variables VELAMQ_CONFIG_FILE: etc/"velamq/config.toml"
+    environment_variables VELAMQ_CONFIG_FILE: etc/"velamq/config.toml",
+      VELAMQ_API_STATIC_DIR: pkgshare/"static"
     log_path var/"log/velamq/velamq.log"
     error_log_path var/"log/velamq/velamq.err.log"
   end
@@ -42,5 +45,6 @@ class Velamq < Formula
   test do
     assert_predicate bin/"velamqd", :exist?
     assert_predicate etc/"velamq/config.toml", :exist?
+    assert_predicate pkgshare/"static/index.html", :exist?
   end
 end
